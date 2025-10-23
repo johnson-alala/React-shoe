@@ -6,22 +6,20 @@ import BrandList from "./components/BrandList";
 import About from "./components/About";
 import AddShoeForm from "./components/AddShoeForm";
 import CartPage from "./components/CartPage";
+import LandingPage from "./components/LandingPage";
 import "./App.css";
 
 function App() {
   const [shoes, setShoes] = useState([]);
   const [filteredShoes, setFilteredShoes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [cart, setCart] = useState([]); 
+  const [cart, setCart] = useState([]);
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     fetch("http://localhost:3005/shoes")
       .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch shoes");
-        }
+        if (!res.ok) throw new Error("Failed to fetch shoes");
         return res.json();
       })
       .then((data) => {
@@ -35,7 +33,7 @@ function App() {
       });
   }, []);
 
-  function handleFilter(filterText) {
+  const handleFilter = (filterText) => {
     const filtered = shoes.filter((shoe) =>
       [shoe.name, shoe.style, shoe.size_type]
         .join(" ")
@@ -43,32 +41,29 @@ function App() {
         .includes(filterText.toLowerCase())
     );
     setFilteredShoes(filtered);
-  }
+  };
 
-  function handleAddShoe(newShoe) {
+  const handleAddShoe = (newShoe) => {
     setShoes((prev) => [...prev, newShoe]);
     setFilteredShoes((prev) => [...prev, newShoe]);
-  }
+  };
 
-  function addToCart(shoe) {
-    setCart((prevCart) => [...prevCart, shoe]);
-  }
-
-  function removeFromCart(id) {
+  const addToCart = (shoe) => setCart((prevCart) => [...prevCart, shoe]);
+  const removeFromCart = (id) =>
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-  }
-
-  function goToCart() {
-    navigate("/cart");
-  }
+  const goToCart = () => navigate("/cart");
 
   return (
     <div className="App">
       <Header cartCount={cart.length} onCartClick={goToCart} />
 
       <Routes>
+        {/* New Landing Page */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* Shop Page (previously your home route) */}
         <Route
-          path="/"
+          path="/shop"
           element={
             loading ? (
               <p className="loading">Loading shoes...</p>
@@ -82,9 +77,7 @@ function App() {
         />
 
         <Route path="/add" element={<AddShoeForm addShoe={handleAddShoe} />} />
-
         <Route path="/about" element={<About />} />
-
         <Route
           path="/cart"
           element={<CartPage cart={cart} removeFromCart={removeFromCart} />}
