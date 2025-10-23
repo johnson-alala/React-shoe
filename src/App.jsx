@@ -16,22 +16,24 @@ function App() {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:3005/shoes")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to fetch shoes");
-        return res.json();
-      })
-      .then((data) => {
-        setShoes(data);
-        setFilteredShoes(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching shoes:", err);
-        setLoading(false);
-      });
-  }, []);
+useEffect(() => {
+  fetch(
+    "https://raw.githubusercontent.com/johnson-alala/React-shoe/refs/heads/main/db.json"
+  )
+    .then((res) => {
+      if (!res.ok) throw new Error("Failed to fetch shoes");
+      return res.json();
+    })
+    .then((data) => {
+      setShoes(data.shoes);
+      setFilteredShoes(data.shoes);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error fetching shoes:", err);
+      setLoading(false);
+    });
+}, []);
 
   const handleFilter = (filterText) => {
     const filtered = shoes.filter((shoe) =>
