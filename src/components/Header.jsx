@@ -9,11 +9,12 @@ function Header({ cartCount, onCartClick }) {
         <h1>FootPrint Alabi</h1>
         <p>Specialized footwear for all sizes.</p>
       </div>
-
+     
       <nav className="nav-links">
-        <NavLink exact="true" to="/" className="nav-link">
-          Home
-        </NavLink>
+        <NavLink to="/" className="nav-link">Home</NavLink>
+        <NavLink to="/" className="nav-link">
+        Home
+       </NavLink> 
         <NavLink to="/add" className="nav-link">
           Add Brand
         </NavLink>

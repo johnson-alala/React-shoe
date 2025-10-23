@@ -6,7 +6,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f2f4f7ef;
+    background: linear-gradient(135deg, #dfe2ec, #084799);
+  background-color: #02051109;
   color: #333;
   line-height: 1.6;
 }
@@ -325,8 +326,6 @@ body {
   background-color: #e5ac00;
 }
 
-
-/* 🛒 CART PAGE STYLES */
 .cart-page {
   max-width: 1000px;
   margin: 40px auto;
@@ -346,7 +345,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* 🧾 Cart List Layout */
 .cart-list {
   list-style: none;
   padding: 0;
@@ -372,7 +370,6 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 👟 Image */
 .cart-item-image {
   width: 100px;
   height: 100px;
@@ -380,7 +377,6 @@ body {
   border-radius: 10px;
 }
 
-/* 📋 Item info */
 .cart-item-info {
   flex: 1;
 }
@@ -397,7 +393,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* ❌ Remove button */
 .remove-btn {
   background: #ff4d4d;
   color: white;
@@ -408,19 +403,26 @@ body {
   font-size: 0.9rem;
   transition: background 0.3s ease;
 }
-
 .remove-btn:hover {
   background: #e63946;
 }
 
-/* Empty cart message */
 .cart-page p {
   text-align: center;
   color: #555;
   font-size: 1rem;
   margin-top: 20px;
 }
-
+.buy-btn {
+  background-color: #1f40d1;
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
 
 .cart-button {
   position: relative;

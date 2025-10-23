@@ -29,6 +29,11 @@ function CartPage({ cart, removeFromCart }) {
               </button>
             </li>
           ))}
+               <button
+              className="buy-btn"
+              onClick={() => alert(`Thank you for your purchase of ${cart.length} items!`)}
+              >Buy 
+              </button>
         </ul>
       )}
     </div>

@@ -16,7 +16,7 @@ function AddShoeForm({ addShoe }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3000/shoes", {
+    fetch("http://localhost:3005/shoes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

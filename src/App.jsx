@@ -17,7 +17,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch("http://localhost:3000/shoes")
+    fetch("http://localhost:3005/shoes")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch shoes");
