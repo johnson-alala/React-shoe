@@ -18,7 +18,7 @@ function App() {
 
 useEffect(() => {
   fetch(
-    "https://raw.githubusercontent.com/johnson-alala/React-shoe/refs/heads/main/db.json"
+    "https://raw.githubusercontent.com/johnson-alala/React-shoe/main/db.json"
   )
     .then((res) => {
       if (!res.ok) throw new Error("Failed to fetch shoes");
@@ -60,10 +60,8 @@ useEffect(() => {
       <Header cartCount={cart.length} onCartClick={goToCart} />
 
       <Routes>
-        {/* New Landing Page */}
         <Route path="/" element={<LandingPage />} />
 
-        {/* Shop Page (previously your home route) */}
         <Route
           path="/shop"
           element={
